@@ -13,6 +13,6 @@ export const myComonent = (
     <h1 className="title">Loooooooook</h1>
   </main>
 )
-console.log(myComonent)
+// console.log(myComonent)
 
 export default Timer
