@@ -59,11 +59,16 @@ const TimerTask = () => {
         {hrs < 9 ? `0${hrs}` : hrs} :{mins <= 9 ? ` 0${mins}` : mins} :
         {secs <= 9 ? ` 0${secs}` : secs}
       </h1>
-      <button onClick={() => onPauseTimer()}>Pause</button>{" "}
+      {/* To pause the timer */}
+      <button onClick={() => onPauseTimer()}>Pause</button>{" "} 
+      {/* To retart the paused timer */}
       <button onClick={() => onTimerRestart()}>Restart</button>{" "}
+      {/* To stop the timer */}
       <button onClick={() => onStopTimer()}>Stop</button>{" "}
+      {/* To imitially start the timer. Restart and start works the same way */}
       <button onClick={() => setIsTimer(true)}>Start</button>
       <div>
+        {/* To display the time at which the timer was stopped */}
         {timerStoppedAt.map((time, index) => {
           return (
             <ul key={index}>
@@ -77,3 +82,8 @@ const TimerTask = () => {
 };
 
 export default TimerTask;
+
+// Things learned - 
+// To use setInterval and clear interval
+// Why to use them in useEffect--> useEffect is basicallu used for side effect clean up i.e. clearing intervals or DOM events
+// prev=>prev + 1 in async operation and hence it does not update the state in the next line. Hence used the different useEffects for the Mins and Hours time update.
